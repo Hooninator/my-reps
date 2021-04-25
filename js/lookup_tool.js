@@ -258,9 +258,12 @@ function addressSearch() {
                 let cellDataAddress = document.querySelector('table').rows[1].cells[3];
                 let formFieldName = document.getElementById('Widget1064702645');
                 let formFieldAddress = document.getElementById('Widget809887693');
-
-                formFieldName.value = cellDataName.innerHTML.trim().substring(0, 10);
-                formFieldAddress.value = cellDataAddress.innerHTML.trim().substring(28, 51).concat(' ', cellDataAddress.innerHTML.trim().substring(130, 151));
+                
+                //julian's changes 
+                var f_name = cellDataName.innerHTML.trim()
+                var f_address = cellDataAddress.innerHTML.trim()
+                formFieldName.value = f_name.replace(/<[^>]*>?/gm, '');
+                formFieldAddress.value = f_address.replace(/<[^>]*>?/gm, '');
 
                 })
         }
